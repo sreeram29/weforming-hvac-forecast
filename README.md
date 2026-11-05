@@ -31,8 +31,8 @@ The system looks at tomorrow's weather forecast, combines it with historical ene
 
 **1. Clone the repository:**
 ```bash
-git clone [https://github.com/yourusername/hvac-forecaster.git](https://github.com/yourusername/hvac-forecaster.git)
-cd hvac-forecaster
+git clone https://github.com/sreeram29/weforming-hvac-forecast.git
+cd hvac_forecast_files
 
 ```
 
