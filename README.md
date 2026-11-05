@@ -4,18 +4,22 @@ This repository contains a highly resilient, automated machine learning pipeline
 
 It uses a **3-Tier Cascading Strategy** to ensure high reliability. If advanced machine learning fails or data is missing, the system gracefully falls back to historical averages or naive persistence to guarantee a forecast is always generated.
 
-## 🧠 How It Works (The Methodology)
+## How It Works (The Methodology)
 
 The system looks at tomorrow's weather forecast, combines it with historical energy usage, and predicts exactly how much power the HVAC systems will draw every 10 minutes.
 
 ### Feature Engineering & Physics
 * **Thermal Inertia:** Buildings don't heat up instantly. The model calculates 1-hour and 3-hour rolling temperature averages to understand how the building absorbs and retains heat.
+  
 * **Resilient Weather Processing:** Natively supports high-resolution weather data, but if your provider only supplies daily min/max temperatures, the pipeline mathematically synthesizes a realistic 10-minute diurnal temperature curve.
+  
 * **Human Context:** Automatically incorporates operating schedules (e.g., 07:30 to 23:00 active hours), weekends, and Portuguese public holidays.
 
 ### The 3-Tier Cascade
 1. **Tier 1 (LightGBM):** The primary engine. Looks for complex, non-linear patterns. It self-validates on recent data; if the accuracy ($R^2$) is $\ge$ 0.65, the forecast is approved.
+   
 2. **Tier 2 (Historical Median):** If Tier 1 fails (e.g., erratic recent data), the system falls back to the median load profile of the same weekday (e.g., the average of all past Tuesdays).
+   
 3. **Tier 3 (Naive Persistence):** If Tier 2 fails (e.g., a brand new meter with no historical data), it outputs the exact power curve from the previous day.
 
 ---
