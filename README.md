@@ -111,5 +111,3 @@ The script generates a `forecast_output.csv` file containing 432 rows (144 ten-m
 | `generated_at` | System execution timestamp. |
 
 ```
-
-```
