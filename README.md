@@ -109,5 +109,3 @@ The script generates a `forecast_output.csv` file containing 432 rows (144 ten-m
 | `strategy_tier` | Indicates which cascade tier generated the number (e.g., `TIER_1_LIGHTGBM`). |
 | `confidence_score` | The $R^2$ validation score of the tier used. |
 | `generated_at` | System execution timestamp. |
-
-```
