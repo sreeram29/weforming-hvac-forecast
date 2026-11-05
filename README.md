@@ -1,4 +1,3 @@
-```markdown
 # HVAC Day-Ahead Power Forecasting
 
 This repository contains a highly resilient, automated machine learning pipeline designed to predict the power consumption of HVAC (Heating, Ventilation, and Air Conditioning) units at 10-minute intervals. 
